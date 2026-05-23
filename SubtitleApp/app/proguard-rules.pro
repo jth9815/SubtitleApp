@@ -1,0 +1,5 @@
+-keep class org.vosk.** { *; }
+-keep class com.k2fsa.sherpa.** { *; }
+-keep class com.google.mlkit.** { *; }
+-keep class org.apache.commons.compress.** { *; }
+-dontwarn org.apache.commons.compress.**
