@@ -10,6 +10,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        // sherpa-onnx 라이브러리 저장소
+        maven { url 'https://jitpack.io' }
     }
 }
 rootProject.name = "SubtitleApp"
