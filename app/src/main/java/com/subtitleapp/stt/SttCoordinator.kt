@@ -25,7 +25,7 @@ object SttCoordinator {
         val modeName = prefs.getString(PREF_STT_MODE, SttMode.FAST.name) ?: SttMode.FAST.name
         val mode = runCatching { SttMode.valueOf(modeName) }.getOrDefault(SttMode.FAST)
 
-        // 모델 설치 여부 확인
+        // 모델 없으면 크래시 대신 안내
         if (!SttEngineFactory.isModelReady(context, mode)) {
             Log.w(TAG, "모델 없음: ${ModelPaths.forMode(mode)}")
             SubtitleOverlayService.showFinal("⚠️ STT 모델이 없어요\n앱을 재실행해서 모델을 다운로드하세요")
@@ -53,7 +53,7 @@ object SttCoordinator {
                 },
                 onError = { e ->
                     Log.e(TAG, "엔진 초기화 실패: ${e.message}")
-                    SubtitleOverlayService.showFinal("⚠️ STT 모델 로드 실패\n앱을 재실행해서 모델을 다운로드하세요")
+                    SubtitleOverlayService.showFinal("⚠️ STT 모델 로드 실패\n앱을 재실행하세요")
                     running = false
                 }
             )
