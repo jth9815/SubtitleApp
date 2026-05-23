@@ -13,7 +13,6 @@ android {
         targetSdk 34
         versionCode 1
         versionName "1.0.0"
-        ndk { abiFilters "arm64-v8a", "armeabi-v7a" }
     }
 
     buildTypes {
@@ -42,12 +41,9 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1'
     implementation 'org.apache.commons:commons-compress:1.26.2'
 
-    // Vosk STT
+    // Vosk STT (빠름 모드만 우선 지원)
     implementation 'net.java.dev.jna:jna:5.13.0@aar'
     implementation 'com.alphacephei:vosk-android:0.3.47'
-
-    // Sherpa-onnx (공식 Maven Central 버전으로 변경)
-    implementation 'com.github.k2-fsa:sherpa-onnx:1.10.20'
 
     // ML Kit 번역
     implementation 'com.google.mlkit:translate:17.0.2'
